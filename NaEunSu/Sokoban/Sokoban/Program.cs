@@ -27,7 +27,7 @@ while (true)
     Console.Write("N");
 
     Console.SetCursorPosition(boxX, boxY);
-    Console.Write("■");
+    Console.Write("P");
 
 
     // ------------------------------ ProcessInput ----------------------
@@ -38,26 +38,66 @@ while (true)
     // 오른쪽 화살표키를 눌렀을 때
     if (key == ConsoleKey.RightArrow)
     {
-        playerX = Math.Min(playerX + 1, 15); // 오른쪽으로 이동 
-        boxX = Math.Min(boxX , 14);
+        // 오른쪽으로 이동
+
+        if (playerX == boxX - 1 && playerY == boxY)
+        {
+            boxX = Math.Min(boxX + 1, 15); // 넵
+            playerX = Math.Min(playerX + 1, 14); // 아하!!넵
+        }
+        else
+        {
+            playerX = Math.Min(playerX + 1, 15);
+        }
+ 
     }
 
     if (key == ConsoleKey.LeftArrow)
     {
-        playerX = Math.Max(0, playerX - 1); // 왼쪽으로 이동
-        boxX = Math.Max(0, boxX - 2);
+         // 왼쪽으로 이동 
+
+        if (playerX == boxX + 1 && playerY == boxY) // 아하!!
+        {
+            boxX = Math.Max(0, boxX - 1);
+            playerX = Math.Max(1, playerX - 1); // 넵!! 감사합니다ㅠㅜ
+        }
+
+        else
+        {
+            playerX = Math.Max(0, playerX - 1);
+        }
     }
 
     if (key == ConsoleKey.UpArrow)
     {
-        playerY = Math.Max(0, playerY - 1); ; // 위쪽으로 이동
-        boxY = Math.Max(0, boxY - 2);
+         // 위쪽으로 이동
+
+        if (playerY == boxY + 1 && playerX == boxX)
+        {
+            boxY = Math.Max(0, boxY - 1);
+            playerY = Math.Max(1, playerY - 1);
+        }
+
+        else
+        {
+            playerY = Math.Max(0, playerY - 1); //넵 아... 조건식을....
+        }
     }
 
     if (key == ConsoleKey.DownArrow)
     {
-        playerY = Math.Min(playerY + 1, 10); // 아래쪽으로 이동
-        boxY = Math.Min(boxY, 9);
+          // 아래쪽으로 이동
+
+        if (playerY == boxY - 1 && playerX == boxX)
+        {
+            boxY = Math.Min(boxY + 1, 10);
+            playerY = Math.Min(playerY + 1, 9);
+        }
+
+        else
+        {
+            playerY = Math.Min(playerY + 1, 10); // 감사합니다!! 넵!!!!!
+        }
     }
     
 
