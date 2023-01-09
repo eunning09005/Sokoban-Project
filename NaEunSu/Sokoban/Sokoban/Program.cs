@@ -247,7 +247,7 @@ namespace _01._05
 
                                 case Direction.Down:
                                     boxY = wallY - 1;
-                                    playerY = wallY - 1;
+                                    playerY = boxY - 1;
                                     break;
                             }
 
